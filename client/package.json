@@ -28,8 +28,8 @@
   "scripts": {
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "lint-fix": "eslint --ext .ts,.tsx ./src --fix",
-    "lint": "eslint --ext .ts,.tsx ./src",
+    "lint-fix": "eslint --ext .ts,.tsx src --fix",
+    "lint": "eslint --ext .ts,.tsx src",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
