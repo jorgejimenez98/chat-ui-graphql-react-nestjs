@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { ModelDefinition, MongooseModule } from '@nestjs/mongoose'
 
+import { DBMigrationService } from './db-migration.service'
+
 @Module({
   imports: [
     MongooseModule.forRootAsync({
@@ -10,7 +12,8 @@ import { ModelDefinition, MongooseModule } from '@nestjs/mongoose'
       }),
       inject: [ConfigService]
     })
-  ]
+  ],
+  providers: [DBMigrationService]
 })
 
 export class DataBaseModule {
