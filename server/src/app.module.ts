@@ -1,8 +1,9 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
-import { ConfigModule } from '@nestjs/config'
+import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 import * as Joi from 'joi'
+import { LoggerModule } from 'nestjs-pino'
 
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
@@ -11,6 +12,7 @@ import { UsersModule } from './users/users.module'
 
 @Module({
   imports: [
+
     /* Mongo DB Connection */
     ConfigModule.forRoot({
       isGlobal: true,
@@ -18,14 +20,36 @@ import { UsersModule } from './users/users.module'
         MONGO_DB_CONNECTION: Joi.string().required()
       })
     }),
+
     /* Database */
     DataBaseModule,
+
+    /* Custom Logger */
+    LoggerModule.forRootAsync({
+      useFactory: (confirService: ConfigService) => {
+        const isProduction = confirService.get('NODE_ENV') === 'production'
+        return {
+          pinoHttp: {
+            transport: isProduction ? undefined : {
+              target: 'pino-pretty',
+              options: {
+                singleLine: true
+              }
+            },
+            level: isProduction ? 'info' : 'debug'
+          }
+        }
+      },
+      inject: [ConfigService]
+    }),
+
     /* Graphql */
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true
     }),
-    /* Modules */
+
+    /* App Modules */
     UsersModule
   ],
   controllers: [AppController],
