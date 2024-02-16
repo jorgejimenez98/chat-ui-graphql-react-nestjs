@@ -1,8 +1,8 @@
-import React from 'react';
-import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import React from 'react'
+import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material'
+import { RouterProvider } from 'react-router-dom'
 
-import { RouterProvider } from 'react-router-dom';
-import router from './features/routes';
+import router from './features/routes'
 
 const darkTheme = createTheme({
   palette: {
@@ -13,13 +13,13 @@ const darkTheme = createTheme({
 const App: React.FC = () =>{
   return (
     <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
+      <CssBaseline />
 
-        <Container>
-            <RouterProvider router={router}/>
-        </Container>
+      <Container>
+        <RouterProvider router={router}/>
+      </Container>
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+export default App
