@@ -1,7 +1,9 @@
 import React from 'react'
 import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material'
 import { RouterProvider } from 'react-router-dom'
+import { ApolloProvider } from '@apollo/client'
 
+import { apolloClient } from './lib/constants'
 import router from './features/routes'
 
 const darkTheme = createTheme({
@@ -10,15 +12,18 @@ const darkTheme = createTheme({
   }
 })
 
-const App: React.FC = () =>{
+const App: React.FC = () => {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
+    <ApolloProvider client={apolloClient}>
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
 
-      <Container>
-        <RouterProvider router={router}/>
-      </Container>
-    </ThemeProvider>
+        <Container>
+          <RouterProvider router={router} />
+        </Container>
+      </ThemeProvider>
+
+    </ApolloProvider>
   )
 }
 

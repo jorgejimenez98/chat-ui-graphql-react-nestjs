@@ -7,6 +7,7 @@
   },
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.9.5",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
@@ -17,11 +18,12 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
-    "@types/react-dom": "^18.0.0",
     "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "graphql": "^16.8.1",
+    "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "react": "^18.2.0",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
@@ -59,10 +61,10 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.0.1",
     "@typescript-eslint/parser": "^7.0.1",
-    "eslint-config-react": "^1.1.7",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react": "^7.33.2",
     "eslint": "^8.56.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^9.0.11"
   }
 }
