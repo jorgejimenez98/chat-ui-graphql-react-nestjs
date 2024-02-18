@@ -5,7 +5,7 @@
   "author": {
     "name": "Jorge Jiménez"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@apollo/client": "^3.9.5",
     "@emotion/react": "^11.11.3",
