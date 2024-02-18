@@ -7,9 +7,9 @@ import { User } from './entities/user.entity'
 
 @Injectable()
 export class UsersRepository extends AbstractRepository<User> {
-    protected readonly logger = new Logger(UsersRepository.name)
+  protected readonly logger = new Logger(UsersRepository.name)
 
-    constructor(@InjectModel(User.name) userModel: Model<User>) {
-        super(userModel)
-    }
+  constructor(@InjectModel(User.name) userModel: Model<User>) {
+    super(userModel)
+  }
 }

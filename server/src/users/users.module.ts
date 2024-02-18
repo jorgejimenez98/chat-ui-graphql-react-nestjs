@@ -11,5 +11,6 @@ import { UsersService } from './users.service'
     { name: User.name, schema: UserSchema}
   ])],
   providers: [UsersResolver, UsersService, UsersRepository],
+  exports: [UsersService]
 })
 export class UsersModule {}

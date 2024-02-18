@@ -1,9 +1,7 @@
-import { InputType, Field, PartialType } from '@nestjs/graphql'
+/* eslint-disable indent */
+import { InputType, PartialType } from '@nestjs/graphql'
 
 import { CreateUserInput } from './create-user.input'
 
 @InputType()
-export class UpdateUserInput extends PartialType(CreateUserInput) {
-  @Field()
-  _id: string
-}
+export class UpdateUserInput extends PartialType(CreateUserInput) {}
