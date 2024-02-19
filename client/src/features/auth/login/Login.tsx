@@ -14,6 +14,7 @@ const Login: React.FC = () => {
     <AuthContainer
       submitLabel='Login'
       onSubmit={(payload) => login(payload)}
+      error={error}
     >
       <Link to='/signup'>
         <MuiLink>Signup</MuiLink>

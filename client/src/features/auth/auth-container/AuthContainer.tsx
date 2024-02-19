@@ -7,9 +7,11 @@ interface AuthContainerProps {
         email: string, password: string
     }) => Promise<void>
     children: React.ReactNode
+    error?: string
 }
 
-const AuthContainer: React.FC<AuthContainerProps> = ({ submitLabel, onSubmit, children }) => {
+const AuthContainer: React.FC<AuthContainerProps> = (props) => {
+  const { submitLabel, onSubmit, children, error } = props
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -33,6 +35,8 @@ const AuthContainer: React.FC<AuthContainerProps> = ({ submitLabel, onSubmit, ch
         variant='outlined'
         value={email}
         onChange={e => setEmail(e.target.value)}
+        error={!!error}
+        helperText={error}
       />
 
       {/* Pasword */}
@@ -41,6 +45,8 @@ const AuthContainer: React.FC<AuthContainerProps> = ({ submitLabel, onSubmit, ch
         label='Password'
         variant='outlined'
         value={password}
+        error={!!error}
+        helperText={error}
         onChange={e => setPassword(e.target.value)}
       />
 

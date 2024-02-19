@@ -6,9 +6,8 @@ interface LoginRequest {
   password: string
 }
 
-
 export const useLogin = () => {
-  const [error, setError] = useState<boolean>()
+  const [error, setError] = useState<string>()
 
   const login = async (payload: LoginRequest) => {
     const response = await fetch(
@@ -21,10 +20,14 @@ export const useLogin = () => {
       }
     )
     if (!response.ok) {
-      setError(true)
+      if (response.status === 401) {
+        setError('Credentials are not valid.')
+      } else {
+        setError('Unknown error occured')
+      }
       return
     }
-    setError(false)
+    setError('')
 
     await apolloClient.refetchQueries({ include: 'active' })
   }
