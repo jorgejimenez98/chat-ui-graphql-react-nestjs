@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Link as MuiLink } from '@mui/material'
-import { useCreateUser } from 'hooks'
+import { useCreateUser, useLogin } from 'hooks'
 import { extractErrorMessage } from 'lib/utils'
 
 import AuthContainer from '../auth-container/AuthContainer'
 
 const Signup: React.FC = () => {
   const [createUser] = useCreateUser()
+  const { login } = useLogin()
   const [error, setError] = useState<string>('')
 
   const handleSubmit = async (payload: { email: string, password: string }) => {
@@ -17,6 +18,7 @@ const Signup: React.FC = () => {
           createUserInput: payload
         }
       })
+      await login(payload)
       setError('')
     } catch (error) {
       const errorMessage = extractErrorMessage(error)

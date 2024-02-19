@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Stack, TextField } from '@mui/material'
+import { useCurrentUser } from 'hooks'
+import { useNavigate } from 'react-router-dom'
 
 interface AuthContainerProps {
     submitLabel: string
@@ -14,6 +16,13 @@ const AuthContainer: React.FC<AuthContainerProps> = (props) => {
   const { submitLabel, onSubmit, children, error } = props
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const { data: user } = useCurrentUser()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (user) navigate('/')
+  }, [user, navigate])
 
   return (
     <Stack
