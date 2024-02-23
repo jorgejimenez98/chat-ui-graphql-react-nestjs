@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Link as MuiLink } from '@mui/material'
-
-import AuthContainer from '../auth-container/AuthContainer'
 
 import { useCreateUser, useLogin } from '@/hooks'
 import { extractErrorMessage } from '@/lib/utils'
+
+import AuthContainer from '../auth-container/AuthContainer'
 
 const Signup: React.FC = () => {
   const [createUser] = useCreateUser()
@@ -35,7 +34,7 @@ const Signup: React.FC = () => {
       error={error}
     >
       <Link to='/login'>
-        <MuiLink>Login</MuiLink>
+        Login
       </Link>
     </AuthContainer>
   )

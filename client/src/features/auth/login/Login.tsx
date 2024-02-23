@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Link as MuiLink } from '@mui/material'
+
+import { useLogin } from '@/hooks'
 
 import AuthContainer from '../auth-container/AuthContainer'
 
-import { useLogin } from '@/hooks'
 
 const Login: React.FC = () => {
   const { login, error } = useLogin()
@@ -16,7 +16,7 @@ const Login: React.FC = () => {
       error={error}
     >
       <Link to='/signup'>
-        <MuiLink>Signup</MuiLink>
+        Signup
       </Link>
     </AuthContainer>
   )
