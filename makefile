@@ -20,3 +20,10 @@ lint-fix-front:
 
 buid:
 	docker-compose up -d
+
+setup:
+	- docker-compose up -d
+	- cd ./server && pnpm install --save
+	- cd ./client && yarn --save
+	- cd ./server && pnpm start:dev
+	- cd ./client && pnpm dev
