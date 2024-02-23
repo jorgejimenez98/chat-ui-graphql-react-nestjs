@@ -10,12 +10,12 @@ import { LocalStrategy } from './strategies/local.strategy'
 
 @Module({
   imports: [
-    UsersModule, 
+    UsersModule,
     JwtModule.registerAsync({
       useFactory: (configService: ConfigService) => ({
         secret: configService.getOrThrow('JWT_SECRET'),
         signOptions: {
-          expiresIn: +configService.getOrThrow('JWT_EXPIRATION')
+          expiresIn: Number(configService.getOrThrow('JWT_EXPIRATION'))
         }
       }),
       inject: [ConfigService]
@@ -24,7 +24,7 @@ import { LocalStrategy } from './strategies/local.strategy'
   providers: [
     AuthService, 
     LocalStrategy, 
-    JwtStrategy
+    JwtStrategy,
   ],
   controllers: [AuthController]
 })

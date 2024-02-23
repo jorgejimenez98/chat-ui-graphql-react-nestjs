@@ -16,7 +16,9 @@ async function bootstrap() {
 
   app.use(cookieParser())
 
-  const configSerive = app.get(ConfigService)
-  await app.listen(configSerive.getOrThrow('PORT'))
+  app.enableCors()
+
+  const configService = app.get(ConfigService)
+  await app.listen(configService.getOrThrow('PORT'))
 }
 bootstrap()

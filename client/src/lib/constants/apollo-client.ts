@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
+import { ApolloClient, HttpLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
 
 import router from '@/features/routes'
@@ -24,9 +24,10 @@ const httpLink = new HttpLink({
   uri: GRAPHQL_URL
 })
 
-const apolloClient = new ApolloClient({
+const apolloClient = new ApolloClient<NormalizedCacheObject>({
   cache: new InMemoryCache(),
   link: logoutLink.concat(httpLink),
+  credentials: 'include',
   connectToDevTools: !import.meta.env.PROD
 })
 

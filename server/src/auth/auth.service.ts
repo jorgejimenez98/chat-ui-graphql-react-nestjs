@@ -17,7 +17,7 @@ export class AuthService {
     const expires = new Date()
     expires.setSeconds(
       expires.getSeconds() + 
-      +this.configService.getOrThrow('JWT_EXPIRATION')
+      +this.configService.getOrThrow('JWT_EXPIRATION') 
     )
 
     const tokenPayload: TokenPayload = {
