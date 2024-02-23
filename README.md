@@ -30,4 +30,4 @@ make setup
 
 
 * Open [http://localhost:3000](http://localhost:3000) with your browser to see the react client application.
-* Open [http://localhost:3001](http://localhost:3001/graphql) with your browser to see the graphql server.
+* Open [http://localhost:3001/graphql](http://localhost:3001/graphql) with your browser to see the graphql server.
