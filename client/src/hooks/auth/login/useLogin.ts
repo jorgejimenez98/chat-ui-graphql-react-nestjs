@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { API_URL, apolloClient } from '@/lib/constants'
+import { apolloClient } from '@/lib/constants'
 
 interface LoginRequest {
   email: string
@@ -12,7 +12,7 @@ export const useLogin = () => {
 
   const login = async (payload: LoginRequest) => {
     const response = await fetch(
-      `${API_URL}/auth/login`, {
+      '/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

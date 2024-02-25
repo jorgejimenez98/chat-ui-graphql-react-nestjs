@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "commonjs",
   "author": "Jorge Jimenez",
-  "proxy": "http://localhost:3001",
   "license": "MIT",
   "scripts": {
     "dev": "vite --port 3000",
@@ -31,6 +30,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^20.11.20",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
